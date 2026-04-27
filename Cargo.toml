@@ -20,8 +20,12 @@ repository = "https://github.com/jbellerb/libola-rs"
 
 [dependencies]
 bytes = "1"
-prost = "0.11"
-tokio = { version = "1", features = ["io-util", "net", "time"], optional = true }
+prost = "0.14"
+tokio = { version = "1", features = [
+    "io-util",
+    "net",
+    "time",
+], optional = true }
 
 [features]
 default = ["tokio"]
@@ -29,7 +33,7 @@ tokio = ["dep:tokio"]
 
 [build-dependencies]
 proc-macro2 = "1"
-prost-build = "0.11"
+prost-build = "0.14"
 quote = "1"
 
 [dev-dependencies]

@@ -9,7 +9,8 @@
 
 mod buffer;
 pub mod client;
-pub mod config;
+mod config;
+pub use config::Config;
 pub mod ola;
 
 const PROTOCOL_VERSION: u32 = 1;
@@ -21,7 +22,7 @@ pub use buffer::{DmxBuffer, TryFromBufferError};
 #[cfg(feature = "tokio")]
 use client::ClientAsync;
 use client::StreamingClient;
-use config::{Config, ConnectError};
+use config::ConnectError;
 use std::net::TcpStream;
 #[cfg(feature = "tokio")]
 use tokio::net::TcpStream as TokioTcpStream;

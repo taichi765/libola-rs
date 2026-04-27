@@ -63,7 +63,7 @@ impl Config {
     /// Connect to OLA with the synchronous client. Fails if a connection
     /// cannot be established and (when `auto_start` is enabled) if `olad`
     /// cannot be started.
-    pub fn connect(&self) -> Result<StreamingClient<TcpStream>, ConnectError> {
+    pub fn connect(self) -> Result<StreamingClient<TcpStream>, ConnectError> {
         let endpoint = ("127.0.0.1", self.server_port);
 
         if self.auto_start {
@@ -97,7 +97,7 @@ impl Config {
     /// cannot be established and (when `auto_start` is enabled) if `olad`
     /// cannot be started.
     #[cfg(feature = "tokio")]
-    pub async fn connect_async(&self) -> Result<ClientAsync<TokioTcpStream>, ConnectError> {
+    pub async fn connect_async(self) -> Result<ClientAsync<TokioTcpStream>, ConnectError> {
         let endpoint = ("127.0.0.1", self.server_port);
 
         if self.auto_start {
